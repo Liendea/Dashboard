@@ -27,7 +27,8 @@ Styrkor och brister i min kod:
 2. Väder datan laddas väldigt långsamt. Det går säkert att utveckla så det går snababre.
 3. Jag får upp en varning i consollen att "Layout was forced before the page was fully loaded. If stylesheets are not yet loaded this may cause a flash of unstyled content." för att kösa detta wrappade ajg all js kod i en window load eventlistener som verkar lösa problemet.
 4. Svaghet: Jag råkade publicera på github utan att ha dolt en apinyckel som jag hade glömt bort, denna api nyckel syns nu i min commit historik vilket är en svageht.
-5. styrka i koden: koden är bra strukturerad i olika mappar och filer 
+5. styrka i koden: koden är bra strukturerad i olika mappar och filer
+6. svaghet :  kanske onödigt många css filer, de skulle kunna vara orginaiserade i större filer för att minska anrop och prestanda.
 
 <hr>
 
