@@ -29,6 +29,7 @@ Styrkor och brister i min kod:
 4. Svaghet: Jag råkade publicera på github utan att ha dolt en apinyckel som jag hade glömt bort, denna api nyckel syns nu i min commit historik vilket är en svageht.
 5. styrka i koden: koden är bra strukturerad i olika mappar och filer
 6. svaghet :  kanske onödigt många css filer, de skulle kunna vara orginaiserade i större filer för att minska anrop och prestanda.
+7. Google Fonts & Font Awesome: Dessa externa resurser kan ta lite längre tid att hämta och påverka sidans prestanda.
 
 <hr>
 
