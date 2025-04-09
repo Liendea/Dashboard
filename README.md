@@ -21,6 +21,16 @@ Teknologier:
 
 <hr>
 
+Styrkor och brister i min kod:
+
+1. API nycklarna är inte dolda på ett säkert sätt. För att nycklarna ska döljas korrekt behöver man skapa en mini backend och skapa en proxy server. Då detta inte ingick i uppgiften uteslöts denna lösning men detta är en svaghet i koden.
+2. Väder datan laddas väldigt långsamt. Det går säkert att utveckla så det går snababre.
+3. Jag får upp en varning i consollen att "Layout was forced before the page was fully loaded. If stylesheets are not yet loaded this may cause a flash of unstyled content." för att kösa detta wrappade ajg all js kod i en window load eventlistener som verkar lösa problemet.
+4. Svaghet: Jag råkade publicera på github utan att ha dolt en apinyckel som jag hade glömt bort, denna api nyckel syns nu i min commit historik vilket är en svageht.
+5. styrka i koden: koden är bra strukturerad i olika mappar och filer 
+
+<hr>
+
 Författare:
 
   Författare: Linda Bengtsson
