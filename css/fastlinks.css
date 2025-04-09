@@ -1,0 +1,71 @@
+.snabblänkar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+}
+
+.edit-button,
+.check-button {
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: scroll;
+  height: 250px;
+}
+
+.link {
+  background-color: #fff;
+  padding: 0.5rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2px;
+  height: 50px;
+}
+
+.edit-mode {
+  background-color: #e30c0c;
+}
+
+.link .remove_button {
+  margin-left: auto;
+  margin-right: 10px;
+  cursor: pointer;
+  display: flex;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  margin-left: 1rem;
+}
+
+.search-bar {
+  background-color: rgba(213, 212, 212, 0.646);
+  border-radius: 10px;
+  padding: 0.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar input {
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  outline: none;
+  text-align: center;
+  font-size: 1rem;
+}
