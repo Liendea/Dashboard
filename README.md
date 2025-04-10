@@ -29,6 +29,8 @@ Jag får även upp en varning i konsollen som lyder: “Layout was forced before
 
 En annan svaghet är att jag av misstag publicerade projektet till GitHub utan att först dölja en API-nyckel. Trots att jag senare lade till filen i .gitignore, är nyckeln fortfarande synlig i commit-historiken, vilket är en säkerhetsrisk.
 
+Det finns även saker som skulle kunnas göras tydligae i designen. Dashboardens rubrik går att redigera men det är inte tillräckligt tydligt att den är redigerbar. Men då det bara är jag själv som kommer använda denna dashboard är det inte något problem. Men hade jag byggt åt någon annan hade jag förtydligat detta. 
+
 När det gäller styrkor är koden överlag välstrukturerad och uppdelad i tydliga mappar och filer, vilket gör projektet lätt att navigera och underhålla. Dock kan det argumenteras att det finns onödigt många separata CSS-filer – dessa hade med fördel kunnat slås ihop i större, mer organiserade filer för att minska antalet HTTP-anrop och därmed förbättra prestandan.
 
 Slutligen använder projektet externa resurser som Google Fonts och Font Awesome. Även om dessa är användbara och snygga, kan de i vissa fall påverka laddningstiden negativt eftersom de kräver extra nätverksanrop.
