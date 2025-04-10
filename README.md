@@ -23,13 +23,15 @@ Teknologier:
 
 Styrkor och brister i min kod:
 
-1. API nycklarna är inte dolda på ett säkert sätt. För att nycklarna ska döljas korrekt behöver man skapa en mini backend och skapa en proxy server. Då detta inte ingick i uppgiften uteslöts denna lösning men detta är en svaghet i koden.
-2. Väder datan laddas väldigt långsamt. Det går säkert att utveckla så det går snababre.
-3. Jag får upp en varning i consollen att "Layout was forced before the page was fully loaded. If stylesheets are not yet loaded this may cause a flash of unstyled content." för att kösa detta wrappade ajg all js kod i en window load eventlistener som verkar lösa problemet.
-4. Svaghet: Jag råkade publicera på github utan att ha dolt en apinyckel som jag hade glömt bort, denna api nyckel syns nu i min commit historik vilket är en svageht.
-5. styrka i koden: koden är bra strukturerad i olika mappar och filer
-6. svaghet :  kanske onödigt många css filer, de skulle kunna vara orginaiserade i större filer för att minska anrop och prestanda.
-7. Google Fonts & Font Awesome: Dessa externa resurser kan ta lite längre tid att hämta och påverka sidans prestanda.
+En av de största svagheterna i min kod är att API-nycklarna inte är dolda på ett säkert sätt. För att skydda dem ordentligt hade jag behövt implementera en enkel backendlösning, till exempel genom att skapa en proxyserver. Eftersom uppgiften endast krävde en frontendlösning valde jag att inte implementera detta, men det är viktigt att notera att detta gör koden sårbar. En annan tydlig brist är att väderdatan laddas relativt långsamt, vilket sannolikt går att förbättra genom optimering av API-anrop eller bättre hantering av asynkrona funktioner.
+
+Jag får även upp en varning i konsollen som lyder: “Layout was forced before the page was fully loaded. If stylesheets are not yet loaded this may cause a flash of unstyled content.” För att lösa detta valde jag att wrappa all JavaScript-kod i en window.load-lyssnare, vilket verkar ha åtgärdat problemet.
+
+En annan svaghet är att jag av misstag publicerade projektet till GitHub utan att först dölja en API-nyckel. Trots att jag senare lade till filen i .gitignore, är nyckeln fortfarande synlig i commit-historiken, vilket är en säkerhetsrisk.
+
+När det gäller styrkor är koden överlag välstrukturerad och uppdelad i tydliga mappar och filer, vilket gör projektet lätt att navigera och underhålla. Dock kan det argumenteras att det finns onödigt många separata CSS-filer – dessa hade med fördel kunnat slås ihop i större, mer organiserade filer för att minska antalet HTTP-anrop och därmed förbättra prestandan.
+
+Slutligen använder projektet externa resurser som Google Fonts och Font Awesome. Även om dessa är användbara och snygga, kan de i vissa fall påverka laddningstiden negativt eftersom de kräver extra nätverksanrop.
 
 <hr>
 
