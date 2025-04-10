@@ -43,5 +43,5 @@ Författare:
   
   Instagram: @liendea.dev
   
-  E-mail: bengtssons.linda@outlook.com
+  E-mail: bengtsson-linda@outlook.com
     
