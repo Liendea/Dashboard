@@ -7,7 +7,8 @@ Funktioner:
 * Klocka och datum: klokcslag och datum visas 
 * Snabblänkar: Snabblänkar sparas och favicon hämtas från https://icons.duckduckgo.com/ip2/${input}.ico. Länkarna sparas till localstorage. 
 * Redigerbara snabblänkar: Titeln på snabblänkarna går att redigera när man klickar på pennan uppei widgetens högra hörn. Länkarna sparas till localstorage. 
-* Väder forecast: Väder hämtas från api från https://api.open-meteo.com*Dagens väder: Väder hämtas från api från https://api.openweathermap.org
+* Väder forecast: Väder hämtas från api från https://api.open-meteo.com baserat på användares geolocation
+* Dagens väder: Väder hämtas från api från https://api.openweathermap.org baserat på användares geolocation
 * Anteckningar: Anteckningar som sparas till localStorage
 * Slumpa bakgrundsbild: Bakgrundsbild hämtas från api från https://api.unsplash.com
 
