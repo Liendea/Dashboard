@@ -1,5 +1,7 @@
 "strict mode";
 
+import { IMG_API_KEY } from "./apikeys.js"; // importera apinyckel från annan jsfil
+
 window.addEventListener("load", function () {
   const dashboard_name = document.getElementById("dashboard-name");
 
@@ -31,8 +33,7 @@ window.addEventListener("load", function () {
 
   // Funktion för att hämta random bakgrundsbild från Unsplash
   async function getBackgroundImage() {
-    const apiKey = "1RnCgGIueONRaPcPHgIq-vHKHNvDeWqlBp0vfyGYS0E";
-    const apiUrl = `https://api.unsplash.com/photos/random?client_id=${apiKey}&orientation=landscape&topics=natue&query=sky,forest,flower`;
+    const apiUrl = `https://api.unsplash.com/photos/random?client_id=${IMG_API_KEY}&orientation=landscape&topics=natue&query=sky,forest,flower`;
 
     const response = await fetch(apiUrl);
     const data = await response.json();

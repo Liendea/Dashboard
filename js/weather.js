@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // --------------------------------------------------------------------//
 
-  // 1. Hämta anänvadrens geolocation (används både till dagens väder och forecast)
+  // 1. Hämta användarens geolocation (används både till dagens väder och forecast)
   navigator.geolocation.getCurrentPosition(
     function (position) {
       const latitude = position.coords.latitude;
@@ -31,56 +31,84 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   );
 
-  // Hämta loader från DOM
-  const currentWeatherLoader = document.querySelector(".currentWeatherLoader");
+  // -------------------------- DAGENS VÄDER ----------------------------//
 
   // 2. DAGENS VÄDER - Hämta väderdata baserat på användarens geolocation
   async function getCurrentWeatherData(latitude, longitude) {
-    //const apiKey = "b139a0fea92da78932971232eaa71eef";
-
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
 
-    const response = await fetch(apiUrl);
-    const data = await response.json();
+    try {
+      const response = await fetch(apiUrl);
+      if (!response.ok) {
+        throw new Error("API request failed with status" + response.status);
+      }
+      const data = await response.json();
 
-    const weatherId = data.weather[0].id;
-    const weatherDesc = data.weather[0].description;
-    const temp = data.main.temp;
-    const FLtemp = data.main.feels_like;
-    const wind = data.wind.speed;
-    const gust = data.wind.gust;
-    const location = data.name;
+      const filteredData = filterWeatherData(data); // filtrera ut relevant data
+      createCurrentWeatherCard(filteredData); // Skapa dagensväder kort i DOM
+    } catch (error) {
+      console.error("Väderdata gick ej att hämta ", error);
+      const weather_data = document.querySelector(".weather-data");
+      weather_data.innerHTML = `<p>Väderdata gick ej att hämta</p>`;
+    }
+  }
 
-    // 3. Hämta väderIcon
-    const weatherIcon = getWeatherIcon(weatherId);
+  // --------------------------------------------------------------------//
+
+  // Funktion för att filtrera ut väderdata
+  function filterWeatherData(data) {
+    const filteredData = {
+      weatherId: data.weather[0].id,
+      weatherDesc: data.weather[0].description,
+      temp: data.main.temp,
+      FLtemp: data.main.feels_like,
+      wind: data.wind.speed,
+      gust: data.wind.gust,
+      location: data.name,
+    };
+
+    return filteredData;
+  }
+
+  // --------------------------------------------------------------------//
+
+  // Funktion för att skapa dagens väderkort i DOM
+  function createCurrentWeatherCard(filteredData) {
+    // 3. DAGENS VÄDER - Hämta väderIcon
+    const weatherIcon = getWeatherIcon(filteredData.weatherId);
+
+    // Hämta dagens väder loader från DOM
+    const currentWeatherLoader = document.querySelector(
+      ".currentWeatherLoader"
+    );
 
     // 4.  DAGENS VÄDER - Lägg till väderdata i DOM
     const weather_data = document.querySelector(".weather-data");
     weather_data.innerHTML = `
-      
-      <div class="weather-icon">${weatherIcon}</div>
-      <div class="description"> 
-          <p>${weatherDesc}</p>
-      </div>
-      <div class="temp-wind">
-          <div class="temp"> 
-              <p>temp:<br> ${temp}°C</p>
-              <p>Feels like: <br> ${FLtemp}°C</p>
-          </div>
-          <div class="wind"> 
-              <p>wind:<br> ${wind} m/s</p>
-              <p>Gust:<br> ${gust} m/s</p> 
-          </div>
-      </div>
-      <!-- <div class="location"> 
-          <p>${location}</p>
-      </div> -->
-    
-    `;
+        <div class="weather-icon">${weatherIcon}</div>
+        <div class="description"> 
+            <p id="weather-description">${filteredData.weatherDesc}</p>
+        </div>
+        <div class="temp-wind">
+            <div class="temp"> 
+                <p>temp:<br> ${filteredData.temp}°C</p>
+                <p>Feels like: <br> ${filteredData.FLtemp}°C</p>
+            </div>
+            <div class="wind"> 
+                <p>wind:<br> ${filteredData.wind} m/s</p>
+                <p>Gust:<br> ${filteredData.gust} m/s</p> 
+            </div>
+        </div>
+        <!-- <div class="location"> 
+            <p>${filteredData.location}</p>
+        </div> -->
+        `;
 
     // Göm loader
     currentWeatherLoader.classList.add("hidden");
   }
+
+  // --------------------------------------------------------------------//
 
   // 3. DAGENS VÄDER - Funktion för att hämta rätt vädericon baserat på väder ID
   function getWeatherIcon(weatherId) {
@@ -119,8 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return weatherIcon;
   }
 
-  // Hämta loader från DOM
-  const forecastLoader = document.querySelector(".forecastLoader");
+  // ----------------------------- FORECAST -----------------------------//
 
   // 2. FORECAST - Hämta väderdata baserat på användarens geolocation
   async function getWeatherForeCast(latitude, longitude) {
@@ -129,70 +156,99 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       const response = await fetch(open_meteoAPI);
       if (!response.ok) {
-        throw new Error("API request failed with status" + response.status);
+        throw new Error(
+          "API request failed with status :( :) " + response.status
+        );
       }
 
       const data = await response.json();
 
-      // Ta bara datan som behövs
-      const daily = data.daily;
-
-      // plocka bort första dagen och samla datan som behövs i nytt objekt
-      const cleanedDaily = {
-        date: daily.time.slice(1),
-        weatherCode: daily.weather_code.slice(1),
-        wind_speed: daily.wind_speed_10m_max.slice(1),
-        max_temp: daily.temperature_2m_max.slice(1),
-        min_temp: daily.temperature_2m_min.slice(1),
-      };
-
-      const forecast_container = document.querySelector(".forecast-container");
-
-      for (let i = 0; i < cleanedDaily.date.length; i++) {
-        const date = cleanedDaily.date[i];
-        const max_temp = cleanedDaily.max_temp[i];
-        const min_temp = cleanedDaily.min_temp[i];
-        const wind = cleanedDaily.wind_speed[i];
-        const weatherCode = cleanedDaily.weatherCode[i];
-
-        const forecastIcon = getForecastIcon(weatherCode);
-
-        // Skapa forecast kort
-        const forecast_card = document.createElement("div");
-        forecast_card.classList.add("forecast");
-
-        // Skapa forecast rubrik
-        const forecast_day = document.createElement("p");
-        forecast_day.innerText = `${date}`;
-
-        forecast_card.innerHTML = `
-            <!-- weather icon -->
-            <div class="forecastWeather-icon">
-                ${forecastIcon}
-            </div>
-    
-            <!-- weather data -->
-            <div class="data">
-                <div class="avg-temp">
-                    <p>max<br />${max_temp}°C</p>
-                </div>
-                <div class="avg-temp">
-                    <p>min<br />${min_temp}°C</p>
-                </div>
-                <div class="forecast-wind">
-                    <p>wind<br />${wind}m/s</p>
-                </div>
-            </div>
-        `;
-        forecast_container.appendChild(forecast_day);
-        forecast_container.appendChild(forecast_card);
-      }
+      const cleanedDaily = filterData(data); // Filtrera ut data
+      createForecastCard(cleanedDaily); // Skapa forecast kort med data och visa i DOM
     } catch (error) {
       console.error("det gick inte att hämta api", error);
+      // Skapa error meddelande som syns i widget
+      const forecast_container = document.querySelector(".forecast-container");
+      forecast_container.innerHTML = `<p>Väderdata gick ej att hämta</p>`;
     }
+  }
+
+  // --------------------------------------------------------------------//
+  // Funktion för att filtrera ut data
+  function filterData(data) {
+    const daily = data.daily;
+
+    // Plocka bort första dagen och samla datan som behövs i nytt objekt
+    const cleanedDaily = {
+      date: daily.time.slice(1),
+      weatherCode: daily.weather_code.slice(1),
+      wind_speed: daily.wind_speed_10m_max.slice(1),
+      max_temp: daily.temperature_2m_max.slice(1),
+      min_temp: daily.temperature_2m_min.slice(1),
+    };
+
+    return cleanedDaily;
+  }
+
+  // --------------------------------------------------------------------//
+  // Funktion för att skapa forecast kort med data
+  function createForecastCard(cleanedDaily) {
+    // Hämta forecastloader från DOM
+    const forecastLoader = document.querySelector(".forecastLoader");
+
+    // Hämta forecast container från DOM
+    const forecast_container = document.querySelector(".forecast-container");
+
+    for (let i = 0; i < cleanedDaily.date.length; i++) {
+      let date = cleanedDaily.date[i];
+      if (i === 0) {
+        date = "Imorgon";
+      }
+
+      const max_temp = cleanedDaily.max_temp[i];
+      const min_temp = cleanedDaily.min_temp[i];
+      const wind = cleanedDaily.wind_speed[i];
+      const weatherCode = cleanedDaily.weatherCode[i];
+
+      // Hämta väderIcon
+      const forecastIcon = getForecastIcon(weatherCode);
+
+      // Skapa forecast rubrik
+      const forecast_day = document.createElement("p");
+      forecast_day.innerText = `${date}`;
+
+      // Skapa forecast kort
+      const forecast_card = document.createElement("div");
+      forecast_card.classList.add("forecast");
+
+      forecast_card.innerHTML = `
+              <!-- weather icon -->
+              <div class="forecastWeather-icon">
+                  ${forecastIcon}
+              </div>
+      
+              <!-- weather data -->
+              <div class="data">
+                  <div class="avg-temp">
+                      <p>max<br />${max_temp}°C</p>
+                  </div>
+                  <div class="avg-temp">
+                      <p>min<br />${min_temp}°C</p>
+                  </div>
+                  <div class="forecast-wind">
+                      <p>wind<br />${wind}m/s</p>
+                  </div>
+              </div>
+          `;
+      forecast_container.appendChild(forecast_day);
+      forecast_container.appendChild(forecast_card);
+    }
+
     // Göm loader
     forecastLoader.classList.add("hidden");
   }
+
+  // --------------------------------------------------------------------//
 
   // 3. FORECAST - Funktion för att hitta rätt väder icon baserat på väderkod
   function getForecastIcon(weatherCode) {
