@@ -1,0 +1,55 @@
+.weather-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  height: 80%;
+  width: 100%;
+}
+
+.weather-icon {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+}
+
+.weather-icon img {
+  width: 130px;
+  height: 130px;
+}
+
+.description {
+  font-weight: 500;
+  margin-bottom: 1rem;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.temp-wind {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+}
+
+.temp,
+.wind {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 7.5rem;
+  justify-content: space-between;
+
+  color: rgba(0, 0, 0, 0.559);
+  font-size: 15px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+
+.location {
+  color: black;
+  font-size: 20px;
+}

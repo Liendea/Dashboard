@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <!-- favicon -->
+    <link rel="icon" href="/img/sunny.png" type="image/png" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/fastlinks.css" />
+    <link rel="stylesheet" href="/css/currentWeather.css" />
+    <link rel="stylesheet" href="/css/weatherForecast.css" />
+    <link rel="stylesheet" href="/css/notes.css" />
+
+    <!-- Font awesome icon -->
+    <script
+      src="https://kit.fontawesome.com/da493979b6.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <!-- Date and time Header -->
+      <div class="date-time">
+        <div class="time">tid</div>
+        <div class="date">datum</div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Main content widgets -->
+      <div class="dashboard-name">
+        <h1 id="dashboard-name" contenteditable="true">Lindas Dashboard</h1>
+      </div>
+      <div class="widgets">
+        <!-- Snabblänkar -->
+        <div class="snabblänkar">
+          <img
+            src="img/edit.svg"
+            class="edit-button"
+            width="20"
+            alt="edit button"
+          />
+          <img
+            src="img/check.svg"
+            class="check-button hidden"
+            width="20"
+            alt="check button"
+          />
+          <h4>Snabblänkar</h4>
+          <div class="link-container">
+            <div class="links">
+              <!-- Länk hämtas från API -->
+            </div>
+          </div>
+          <div class="search-bar">
+            <input
+              class="link-search"
+              type="search"
+              placeholder="+ Lägg till länk "
+            />
+          </div>
+        </div>
+        <!-- Väder forecast widget-->
+        <div class="weather">
+          <h4>Väder</h4>
+
+          <!-- forecast container  -->
+          <div class="forecast-container">
+            <!-- loader -->
+            <span class="forecastLoader"></span>
+            <!-- Forecast fetched from api -->
+          </div>
+        </div>
+
+        <!-- Dagens väder widget-->
+        <div class="default">
+          <h4>Dagens väder</h4>
+          <div class="weather-data">
+            <!-- loader -->
+            <span class="currentWeatherLoader"></span>
+            <!-- Weather data fetched from api -->
+          </div>
+        </div>
+        <div class="notes-container">
+          <h4>Anteckningar</h4>
+          <textarea id="notes" name="notes"></textarea>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <!-- get random background image -->
+      <div class="get-image">
+        <p><i class="fa-solid fa-arrows-rotate"></i> Slumpa ny bakgrund</p>
+      </div>
+
+      <div class="photo-credits">
+        <p>Description:</p>
+        <p>Photographer:</p>
+      </div>
+    </footer>
+
+    <!-- Javascript files -->
+
+    <script src="js/date_time.js"></script>
+    <script src="js/fastlinks.js"></script>
+    <script src="js/notes.js"></script>
+    <script type="module" src="js/index.js"></script>
+    <script type="module" src="js/weather.js"></script>
+  </body>
+</html>

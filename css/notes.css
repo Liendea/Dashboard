@@ -1,0 +1,15 @@
+#notes {
+  margin-top: 3px;
+  width: 100%;
+  height: 80%;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  padding: 1rem;
+  font-family: "poppins";
+  overflow-y: scroll;
+}
+
+textarea {
+  resize: none;
+}
