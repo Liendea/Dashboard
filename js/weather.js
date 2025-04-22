@@ -115,28 +115,28 @@ document.addEventListener("DOMContentLoaded", function () {
     let weatherIcon = ``;
     switch (true) {
       case weatherId >= 200 && weatherId < 300:
-        weatherIcon = `<img src="/img/thunderstorm.png" width="100">`;
+        weatherIcon = `<img src="./img/thunderstorm.png" width="100">`;
         break;
       case weatherId >= 300 && weatherId < 400:
-        weatherIcon = `<img src="/img/drizzle(1).png" width="100">`;
+        weatherIcon = `<img src="./img/drizzle(1).png" width="100">`;
         break;
       case weatherId >= 500 && weatherId < 600:
-        weatherIcon = `<img src="/img/heavy-rain.png" width="100">`;
+        weatherIcon = `<img src="./img/heavy-rain.png" width="100">`;
         break;
       case weatherId >= 600 && weatherId < 700:
-        weatherIcon = `<img src="/img/snow.png" width="100">`;
+        weatherIcon = `<img src="./img/snow.png" width="100">`;
         break;
       case weatherId >= 700 && weatherId < 800:
-        weatherIcon = `<img src="/img/foggy.png" width="100">`;
+        weatherIcon = `<img src="./img/foggy.png" width="100">`;
         break;
       case weatherId === 800:
-        weatherIcon = `<img src="/img/sunny.png" width="100">`;
+        weatherIcon = `<img src="./img/sunny.png" width="100">`;
         break;
       case weatherId > 800 && weatherId < 803:
-        weatherIcon = `<img src="/img/partlycloudy.png" width="100">`;
+        weatherIcon = `<img src="./img/partlycloudy.png" width="100">`;
         break;
       case weatherId > 802:
-        weatherIcon = `<img src="/img/clouds.png" width="100">`;
+        weatherIcon = `<img src="./img/clouds.png" width="100">`;
         break;
 
       default:
@@ -255,30 +255,30 @@ document.addEventListener("DOMContentLoaded", function () {
     let forecastIcon = ``;
     switch (true) {
       case weatherCode > 94:
-        forecastIcon = `<img src="/img/thunderstorm.png" width="100">`;
+        forecastIcon = `<img src="./img/thunderstorm.png" width="100">`;
         break;
       case weatherCode > 50 && weatherCode < 58:
-        forecastIcon = `<img src="/img/drizzle(1).png" width="100">`;
+        forecastIcon = `<img src="./img/drizzle(1).png" width="100">`;
         break;
       case (weatherCode > 60 && weatherCode < 68) ||
         (weatherCode > 79 && weatherCode < 83):
-        forecastIcon = `<img src="/img/heavy-rain.png" width="100">`;
+        forecastIcon = `<img src="./img/heavy-rain.png" width="100">`;
         break;
       case (weatherCode > 70 && weatherCode < 78) ||
         (weatherCode > 84 && weatherCode < 87):
-        forecastIcon = `<img src="/img/snow.png" width="100">`;
+        forecastIcon = `<img src="./img/snow.png" width="100">`;
         break;
       case weatherCode > 44 && weatherCode < 49:
-        forecastIcon = `<img src="/img/foggy.png" width="100">`;
+        forecastIcon = `<img src="./img/foggy.png" width="100">`;
         break;
       case weatherCode === 0:
-        forecastIcon = `<img src="/img/sunny.png" width="100">`;
+        forecastIcon = `<img src="./img/sunny.png" width="100">`;
         break;
       case weatherCode === 1 || weatherCode === 2:
-        forecastIcon = `<img src="/img/partlycloudy.png" width="100">`;
+        forecastIcon = `<img src="./img/partlycloudy.png" width="100">`;
         break;
       case weatherCode === 3:
-        forecastIcon = `<img src="/img/clouds.png" width="100">`;
+        forecastIcon = `<img src="./img/clouds.png" width="100">`;
         break;
 
       default:
