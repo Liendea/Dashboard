@@ -26,9 +26,7 @@ Styrkor och brister i min kod:
 
 En av de största svagheterna i min kod är att API-nycklarna inte är dolda på ett säkert sätt. För att skydda dem ordentligt hade jag behövt implementera en enkel backendlösning, till exempel genom att skapa en proxyserver. Eftersom uppgiften endast krävde en frontendlösning valde jag att inte implementera detta, men det är viktigt att notera att detta gör koden sårbar. En annan tydlig brist är att väderdatan laddas relativt långsamt, vilket sannolikt går att förbättra genom optimering av API-anrop eller bättre hantering av asynkrona funktioner.
 
-Jag får även upp en varning i konsollen som lyder: “Layout was forced before the page was fully loaded. If stylesheets are not yet loaded this may cause a flash of unstyled content.” För att lösa detta valde jag att wrappa all JavaScript-kod i en window.load-lyssnare, vilket tyvärr inte löste problemet. Så det är ett problem jag inte lyjats lösa.
-
-En annan svaghet är att jag av misstag publicerade projektet till GitHub utan att först dölja en API-nyckel. Trots att jag senare lade till filen i .gitignore, är nyckeln fortfarande synlig i commit-historiken, vilket är en säkerhetsrisk.
+Jag får även upp en varning i konsollen som lyder: “Layout was forced before the page was fully loaded. If stylesheets are not yet loaded this may cause a flash of unstyled content.” För att lösa detta valde jag att wrappa all JavaScript-kod i en window.load-lyssnare, vilket tyvärr inte löste problemet. Så det är ett problem jag inte lyckats lösa.
 
 Det finns även saker som skulle kunnas göras tydligae i designen. Dashboardens rubrik går att redigera men det är inte tillräckligt tydligt att den är redigerbar. Men då det bara är jag själv som kommer använda denna dashboard är det inte något problem. Men hade jag byggt åt någon annan hade jag förtydligat detta. 
 
