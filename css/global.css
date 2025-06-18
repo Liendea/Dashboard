@@ -35,7 +35,8 @@ main {
 .dashboard-name {
   margin-bottom: 3rem;
   cursor: pointer;
-  background-color: #ffffff38;
+  background-color: rgba(211, 211, 211, 0.461);
+  backdrop-filter: blur(10px);
   border-radius: 20px;
   width: auto;
   padding: 0.5rem 4rem 0.5rem 4rem;

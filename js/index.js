@@ -5,18 +5,16 @@ import { IMG_API_KEY } from "./apikeys.js"; // importera apinyckel från annan j
 window.addEventListener("load", function () {
   const dashboard_name = document.getElementById("dashboard-name");
 
+  // Hämta dashboard name från localstorage om det finns sparat
+  const savedName = localStorage.getItem("dashboardName");
+  if (savedName) {
+    dashboard_name.innerText = savedName;
+  }
+
   // Spara dashboard name till localstorage
   dashboard_name.addEventListener("input", () => {
     const currentText = dashboard_name.innerText;
     localStorage.setItem("dashboardName", currentText);
-  });
-
-  // Hämta dashboard name från localstorage om det finns sparat
-  window.addEventListener("load", () => {
-    const savedName = localStorage.getItem("dashboardName");
-    if (savedName) {
-      dashboard_name.innerText = savedName;
-    }
   });
 
   // -------------------------------------------------//
