@@ -4,6 +4,27 @@
   box-sizing: border-box;
 }
 
+/* WebKit-baserade (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 6px; /* vertikal scrollbar */
+  height: 6px; /* horisontell scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* osynlig bakgrund */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3); /* grå, diskret tumme */
+  border-radius: 3px;
+}
+
+/* För Firefox */
+* {
+  scrollbar-width: thin; /* tunn scrollbar */
+  scrollbar-color: rgba(0, 0, 0, 0.3) transparent; /* tumme och spår */
+}
+
 body {
   display: flex;
   flex-direction: column;
