@@ -4,27 +4,6 @@
   box-sizing: border-box;
 }
 
-/* WebKit-baserade (Chrome, Safari) */
-::-webkit-scrollbar {
-  width: 6px; /* vertikal scrollbar */
-  height: 6px; /* horisontell scrollbar */
-}
-
-::-webkit-scrollbar-track {
-  background: transparent; /* osynlig bakgrund */
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.3); /* grå, diskret tumme */
-  border-radius: 3px;
-}
-
-/* För Firefox */
-* {
-  scrollbar-width: thin; /* tunn scrollbar */
-  scrollbar-color: rgba(0, 0, 0, 0.3) transparent; /* tumme och spår */
-}
-
 body {
   font-family: "poppins";
   background-image: url();
@@ -47,9 +26,17 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 3rem;
+
+  height: 100%;
+  width: 90%;
 }
 
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding: 1rem;
+}
 .dashboard-name {
   cursor: pointer;
   background-color: rgba(211, 211, 211, 0.461);
@@ -64,13 +51,14 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
   gap: 1rem;
-  height: auto;
+
+  height: 50%;
 }
+
 .widgets > div {
   width: 30%;
-  height: 70%;
+  height: auto;
   border-radius: 20px;
   background-color: rgba(211, 211, 211, 0.461);
   padding: 1rem;
@@ -83,7 +71,6 @@ h4 {
   font-size: 1.5rem;
   font-weight: 300;
   text-align: center;
-  margin-block: 1rem;
 }
 
 /* Date and time widget */
@@ -96,7 +83,6 @@ h4 {
   justify-content: center;
   align-items: center;
   display: flex;
-  margin-bottom: 4rem;
 }
 
 .date {
@@ -116,6 +102,7 @@ h4 {
   justify-content: flex-end;
   width: 100%;
   padding-top: 4rem;
+  padding-bottom: 1rem;
 }
 
 .footer div:last-child {
@@ -128,7 +115,7 @@ h4 {
   border-radius: 10px;
   padding: 0.5rem;
   cursor: pointer;
-  width: 15rem;
+  width: 18rem;
   text-align: center;
 }
 
