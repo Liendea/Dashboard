@@ -1,29 +1,37 @@
 .weather-data {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-
   height: 80%;
   width: 100%;
 }
 
-.weather-icon {
-  width: 100%;
-
+.top-section {
+  height: 50%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.weather-icon {
+  width: 30%;
+  display: flex;
+}
+
+@media (max-width: 1500px) {
+  .weather-icon {
+    width: 40%;
+  }
 }
 
 .weather-icon img {
-  width: 130px;
-  height: 130px;
+  width: 100%;
 }
 
 .description {
   font-weight: 500;
   margin-bottom: 1rem;
-  font-size: 15px;
+  font-size: 1rem;
   margin-top: 10px;
 }
 
@@ -38,15 +46,22 @@
   display: flex;
   flex-direction: column;
   width: 50%;
-  height: 7.5rem;
+  height: auto;
   justify-content: space-between;
-
+  gap: 10px;
   color: rgba(0, 0, 0, 0.559);
-  font-size: 15px;
+  font-size: 1rem;
   text-align: center;
   background-color: #fff;
   border-radius: 10px;
   padding: 0.5rem;
+}
+
+@media (max-width: 1500px) {
+  .temp,
+  .wind {
+    font-size: 12px;
+  }
 }
 
 .location {

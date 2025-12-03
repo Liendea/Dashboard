@@ -27,16 +27,14 @@
     />
   </head>
   <body>
-    <header>
+    <main>
+      <!-- Main content widgets -->
       <!-- Date and time Header -->
       <div class="date-time">
         <div class="time">tid</div>
         <div class="date">datum</div>
       </div>
-    </header>
 
-    <main>
-      <!-- Main content widgets -->
       <div class="dashboard-name">
         <h1 id="dashboard-name" contenteditable="true">Dashboard</h1>
       </div>
@@ -55,9 +53,9 @@
             width="20"
             alt=""
           />
-          <h4>Snabblänkar</h4>
+          <h4>Links</h4>
           <div class="link-container">
-            <div class="links">
+            <div class="links hide-scrollbar">
               <!-- Länk hämtas från API -->
             </div>
           </div>
@@ -71,10 +69,10 @@
         </div>
         <!-- Väder forecast widget-->
         <div class="weather">
-          <h4>Väder</h4>
+          <h4>Weather</h4>
 
           <!-- forecast container  -->
-          <div class="forecast-container">
+          <div class="forecast-container hide-scrollbar">
             <!-- loader -->
             <span class="forecastLoader"></span>
             <!-- Forecast fetched from api -->
@@ -83,30 +81,33 @@
 
         <!-- Dagens väder widget-->
         <div class="default">
-          <h4>Dagens väder</h4>
+          <h4>Todays weather</h4>
           <div class="weather-data">
             <!-- loader -->
             <span class="currentWeatherLoader"></span>
             <!-- Weather data fetched from api -->
           </div>
         </div>
+
+        <!-- Anteckningar -->
         <div class="notes-container">
-          <h4>Anteckningar</h4>
-          <textarea id="notes" name="notes"></textarea>
+          <h4>Notes</h4>
+          <textarea id="notes" name="notes" class="hide-scrollbar"></textarea>
         </div>
       </div>
-    </main>
-    <footer>
-      <!-- get random background image -->
-      <div class="get-image">
-        <p><i class="fa-solid fa-arrows-rotate"></i> Slumpa ny bakgrund</p>
-      </div>
 
-      <div class="photo-credits">
-        <p>Description:</p>
-        <p>Photographer:</p>
-      </div>
-    </footer>
+      <section class="footer">
+        <!-- get random background image -->
+        <div class="get-image">
+          <p><i class="fa-solid fa-arrows-rotate"></i> Get random background</p>
+        </div>
+
+        <div class="photo-credits">
+          <p>Description:</p>
+          <p>Photographer:</p>
+        </div>
+      </section>
+    </main>
 
     <!-- Javascript files -->
 

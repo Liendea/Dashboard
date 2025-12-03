@@ -26,41 +26,37 @@
 }
 
 body {
+  font-family: "poppins";
+  background-image: url();
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: white;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
-  min-height: 100vh;
-  padding-top: 3rem;
-  font-family: "poppins";
 
-  background-image: url();
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-@media (max-width: 1600px) {
-  body {
-    transform: scale(0.9); /* Skalar hela sidan */
-    transform-origin: top;
-  }
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
 }
 
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  padding: 3rem;
 }
 
 .dashboard-name {
-  margin-bottom: 3rem;
   cursor: pointer;
   background-color: rgba(211, 211, 211, 0.461);
   backdrop-filter: blur(10px);
   border-radius: 20px;
   width: auto;
-  padding: 0.5rem 4rem 0.5rem 4rem;
+  padding: 0.5rem 4rem;
   text-align: center;
 }
 
@@ -69,11 +65,12 @@ main {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 1rem;
+  height: auto;
 }
 .widgets > div {
-  width: 300px;
-  height: 400px;
+  width: 30%;
+  height: 70%;
   border-radius: 20px;
   background-color: rgba(211, 211, 211, 0.461);
   padding: 1rem;
@@ -83,11 +80,10 @@ main {
 
 /* text */
 h4 {
-  font-size: 25px;
+  font-size: 1.5rem;
   font-weight: 300;
   text-align: center;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-block: 1rem;
 }
 
 /* Date and time widget */
@@ -100,7 +96,7 @@ h4 {
   justify-content: center;
   align-items: center;
   display: flex;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 }
 
 .date {
@@ -113,16 +109,16 @@ h4 {
   font-weight: 600;
 }
 
-footer {
+.footer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
   width: 100%;
-  padding: 1rem;
+  padding-top: 1rem;
 }
 
-footer div:last-child {
+.footer div:last-child {
   text-align: end;
 }
 
@@ -161,9 +157,7 @@ footer div:last-child {
   animation: mulShdSpin 1.3s infinite linear;
   transform: translateZ(0);
   z-index: 100;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 7rem;
+  margin: 7rem auto 0 auto;
 }
 
 @keyframes mulShdSpin {
@@ -204,4 +198,20 @@ footer div:last-child {
 
 .hidden {
   display: none;
+}
+
+/* Denna klass appliceras på elementet vars scrollstapel du vill dölja */
+.hide-scrollbar {
+  /* 1. Dölj i Firefox */
+  scrollbar-width: none;
+
+  /* 2. Dölj i äldre IE/Edge */
+  -ms-overflow-style: none;
+}
+
+/* 3. Dölj i Chrome, Safari, nya Edge (Webkit) */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+  width: 0; /* För att vara extra säker på att det inte tar upp plats */
+  height: 0;
 }

@@ -85,9 +85,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // 4.  DAGENS VÄDER - Lägg till väderdata i DOM
     const weather_data = document.querySelector(".weather-data");
     weather_data.innerHTML = `
+    <div class="top-section">
         <div class="weather-icon">${weatherIcon}</div>
         <div class="description"> 
             <p id="weather-description">${filteredData.weatherDesc}</p>
+        </div>
         </div>
         <div class="temp-wind">
             <div class="temp"> 
@@ -228,7 +230,7 @@ document.addEventListener("DOMContentLoaded", function () {
               </div>
       
               <!-- weather data -->
-              <div class="data">
+              <div class="data hide-scrollbar">
                   <div class="avg-temp">
                       <p>max<br />${max_temp}°C</p>
                   </div>
