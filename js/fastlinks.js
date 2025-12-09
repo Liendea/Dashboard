@@ -25,7 +25,7 @@ window.addEventListener("load", function () {
 
   // 2. Skapa snabblänk i widget
   function createFastlink(encodedURL, input, faviconURL) {
-    const fast_links = document.querySelector(".links"); // Container
+    const fast_links = document.querySelector(".link-container"); // Container
     const link = document.createElement("div"); // skapa snabblänks kort
 
     link.classList.add("link");

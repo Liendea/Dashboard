@@ -1,4 +1,4 @@
-.snabblänkar {
+.fast-links {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -17,12 +17,12 @@
   display: none;
 }
 
-.links {
+.link-container {
   display: flex;
   flex-direction: column;
   gap: 10px;
   overflow-y: scroll;
-  height: 250px;
+  height: 70%;
 }
 
 .link {
